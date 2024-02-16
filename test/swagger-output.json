@@ -1,0 +1,151 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "URL Shortener",
+    "description": "A URL shortener that allows you to provide short URLs of your application"
+  },
+  "servers": [
+    {
+      "url": "/api/v1/",
+      "description": "V1 API",
+      "port": "5000"
+    }
+  ],
+  "paths": {
+    "/{shortUrl}": {
+      "get": {
+        "tags": [
+          "URL"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "shortUrl",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/url/": {
+      "get": {
+        "tags": [
+          "URL"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "URL"
+        ],
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "example": "any"
+                  },
+                  "category": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "URL"
+        ],
+        "description": "",
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "shortUrl": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/url/{shorturl}": {
+      "patch": {
+        "tags": [
+          "URL"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "shorturl",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "shortUrl": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
